@@ -1,0 +1,83 @@
+<div class="row py-5">
+    <h5>Add Airlines Here...!</h5>
+</div>
+<div class="container py-3">
+    <div class="row ">
+        <div class="form col-md-12">
+            <div class="form-group">
+                <div class="row">
+                    <table class="table table-success table-striped">
+                        <thead>
+                            <tr >
+                                <th scope="col">AirlineName</th>
+                            <th scope="col">RegOn</th>                            
+                            <th scope="col">IsActive</th>
+                            <th scope="col">Remarks</th>                                 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input [(ngModel)]="airlineData.airlineName" class="form-control" type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="airlineData.regOn" class="form-control"
+                                        type="text" />
+                                </td>                              
+                                <td>
+                                    <div class="form-group">                                                                 
+                                        <select class="form-select form-control" [(ngModel)]="airlineData.isActive"
+                                            aria-label="Default select example" placeholder="Select Gender">                                
+                                            <option value="Active">Active</option>
+                                            <option value="InActive">Inactive</option>                                            
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="airlineData.remarks" class="form-control"
+                                        type="text" />
+                                </td>                             
+                               
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-primary" (click)="addAirline()">Add Airline</button>
+                        <button type="button" class="btn btn-primary" (click)="viewAirline()">View Airline</button>                        
+                      </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div class="py-5" *ngIf="isAirlineDetailsAvailable">
+    <div class="row ">
+        <div class="form col-md-12">
+            <div class="form-group">
+                <table class="table table-success table-striped ">
+                    <thead >
+                        <tr>
+                            <th scope="col">AirlineName</th>
+                            <th scope="col">RegOn</th>
+                            <th scope="col">RegBy</th>
+                            <th scope="col">IsActive</th>
+                            <th scope="col">Remarks</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let obj of airlineDataUptdArray">
+                            <td>{{obj.airlineName}}</td>
+                            <td>{{obj.regOn}}</td>
+                            <td>{{obj.regBy}}</td>
+                            <td>{{obj.isActive}}</td>                           
+                            <td>{{obj.remarks}}</td>                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

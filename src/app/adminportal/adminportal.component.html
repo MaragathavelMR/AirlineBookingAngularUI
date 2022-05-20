@@ -1,0 +1,131 @@
+<div class="row py-5">
+    <h5>Add Flights under Airlines..!</h5>
+</div>
+
+<div class="container py-3">
+    <div class="row ">
+        <div class="form col-md-12">
+            <div class="form-group">
+                <div class="row">
+                    <table class="table table-success table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Flight No</th>
+                                <th scope="col">AirLine Name</th>
+                                <th scope="col">Flight Name</th>
+                                <th scope="col">From Location</th>
+                                <th scope="col">To Location</th>
+                                <th scope="col">Departure Date</th>
+                                <th scope="col">Arrival Date</th>
+                                <th scope="col">Available Seats</th>
+                                <th scope="col">SchldDays</th>
+                                <th scope="col">instrumentUsed </th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Mealoption</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr >
+                                <td>
+                                    <input [(ngModel)]="flightData.flightNo" class="form-control" type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.airlineName" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.flightName" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.fromPlace" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.toPlace" class="form-control" type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.departureDetails" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.arrivalDetails" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.availableSeats" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.schldDays" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.instrumentUsed" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.ticketFare" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="flightData.mealOption" class="form-control"
+                                        type="text" />
+                                </td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-primary" (click)="addInventory()">Add Flights</button>
+                        <button type="button" class="btn btn-primary" (click)="getflightdetails()">View Flights</button>                        
+                      </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5" *ngIf="isFlightDetailsAvailable">
+    <div class="row ">
+        <div class="form col-md-12">
+            <div class="form-group">
+                <table class="table table-success table-striped">
+                    <thead >
+                        <tr>
+                            <th scope="col">FlightNo</th>
+                            <th scope="col">AirlineName</th>
+                            <th scope="col">FlightName</th>
+                            <th scope="col">FromPlace</th>
+                            <th scope="col">ToPlace</th>
+                            <th scope="col">DepartureDetails</th>
+                            <th scope="col">ArrivalDetails</th>
+                            <th scope="col">AvailableSeats</th>
+                            <th scope="col">SchldDays</th>
+                            <th scope="col">InstrumentUsed</th>
+                            <th scope="col">TicketFare</th>
+                            <th scope="col">MealOption</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let obj of FlightDetailsArray">
+                            <td>{{obj.flightNo}}</td>
+                            <td>{{obj.airlineName}}</td>
+                            <td>{{obj.flightName}}</td>
+                            <td>{{obj.fromPlace}}</td>
+                            <td>{{obj.toPlace}}</td>
+                            <td>{{obj.departureDetails}}</td>
+                            <td>{{obj.arrivalDetails}}</td>
+                            <td>{{obj.availableSeats}}</td>
+                            <td>{{obj.schldDays}}</td>
+                            <td>{{obj.instrumentUsed}}</td>
+                            <td>{{obj.ticketFare}}</td>
+                            <td>{{obj.mealOption}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

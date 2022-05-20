@@ -1,0 +1,127 @@
+
+<div class="container">
+    <div class="py-3">
+        <div class="row">
+            <div class="form col-md-12">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="input-control-label">From</label>
+                        <input type="text" class="form-control" [(ngModel)]="searchInputData.fromLocation"
+                            aria-describedby="emailHelp" placeholder="From">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="input-control-label">To</label>
+                        <input type="text" class="form-control" [(ngModel)]="searchInputData.toLocation"
+                            id="InputPassword" placeholder="To">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="input-control-label">Date of travel</label>
+                        <input type="date" class="form-control" [(ngModel)]="searchInputData.departureDate"
+                            placeholder="Date of travel">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="input-control-label">No of Passengers</label>
+                        <input type="text" class="form-control" [(ngModel)]="searchInputData.noOfPassengers"
+                            placeholder="No of Passengers">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" (click)="searchFlights()" class="btn btn-primary">Search Flights</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-5">
+    <div class="row ">
+        <div class="form col-md-12">
+            <div class="form-group">
+                <table class="table table-success table-striped">
+                    <thead >
+                        <tr>
+                            <th scope="col">Flight No</th>
+                            <th scope="col">Flight Name</th>
+                            <th scope="col">From Location</th>
+                            <th scope="col">To Location</th>
+                            <th scope="col">Departure Date</th>
+                            <th scope="col">Arrival Date</th>
+                            <th scope="col">No Of Seats available</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let obj of flightDetails">
+                            <td>{{obj.flightNo}}</td>
+                            <td>{{obj.flightName}}</td>
+                            <td>{{obj.fromPlace}}</td>
+                            <td>{{obj.toPlace}}</td>
+                            <td>{{obj.departureDetails}}</td>
+                            <td>{{obj.arrivalDetails}}</td>
+                            <td>{{obj.availableSeats}}</td>
+                            <td>{{obj.ticketFare}}</td>
+                            <td><button type="submit" (click)="bookFlight(obj)" class="btn btn-primary">Book Tickets
+                                </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="container py-1">
+    <div class="row ">
+        <div class="form col-md-12">
+            <div class="form-group">
+                <div class="row">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr class="thead-dark">
+                                <th scope="col">Passenger Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">AddPsngr</th>
+                                <th scope="col">RemovePsngr</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dynamic of passengerArray; let i = index;">
+                                <td>
+                                    <input [(ngModel)]="passengerArray[i].psngrName" class="form-control" type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="passengerArray[i].psngrAge" class="form-control" type="text" />
+                                </td>
+                                <td>
+                                     <input [(ngModel)]="passengerArray[i].passengerGender" class="form-control"
+                                      type="text" /> -->
+                                    <!-- <select class="form-select form-control" [(ngModel)]="passengerArray[i].psngrGender"
+                                        aria-label="Default select example" placeholder="Select Gender">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="O">Other</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-success" (click)="addRow(i)">Add</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-warning" (click)="deleteRow(i)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="row col-md-12">
+                        <button type="submit" (click)="bookFlight()" class="btn btn-success">Book Flight</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --> 

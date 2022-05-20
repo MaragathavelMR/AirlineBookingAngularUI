@@ -1,0 +1,18 @@
+<table class="table table-striped">
+    <tr>
+        <td *ngFor="let col of gridColumns">
+            {{col.colName}}
+        </td>
+    </tr>
+    <tr *ngFor="let colObj of gridData">
+        <td *ngFor="let col of gridColumns">
+            {{ colObj[col.colName] }}
+        </td>
+        <td>
+            <a style="cursor: pointer;" (click)="SelectGrid(colObj)">select</a>
+        </td>
+        <td>
+            <a style="cursor: pointer;"  (click)="DeleteGridItem(colObj)">Delete</a>
+        </td>
+    </tr>
+</table>
